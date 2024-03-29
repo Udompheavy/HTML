@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar" >
+        <ul class="menu" type="none">
+        <li class="item"><h1>LOGO</h1></li>
+        <!-- mid-item -->
+        <li class="item">
+            <div class="mid-item">
+                <div class="a"><i class="fa-solid fa-house"></i></div>
+                <div class="a"><p>ABOUT</p></div>
+                <div class="a"> <p>CONTACT</p></div>
+            </div>
+        </li>
+        <li class="item"> <div class="user">  <i class="fa-sharp fa-solid fa-users"></i></div> </li>
+    </ul> 
+ </nav>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/slide-1.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="img/slide-2.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="img/slide-3.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="img/slide-4.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="img/slide-5.jpg" alt=""></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="autoplay-progress">
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span></span>
+        </div>
+      </div>
+    <div class="footer"></div>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+      <script>
+        const progressCircle = document.querySelector(".autoplay-progress svg");
+        const progressContent = document.querySelector(".autoplay-progress span");
+        var swiper = new Swiper(".mySwiper", {
+          spaceBetween: 30,
+          centeredSlides: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          },
+          on: {
+            autoplayTimeLeft(s, time, progress) {
+              progressCircle.style.setProperty("--progress", 1 - progress);
+              progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+            }
+          }
+        });
+      </script>
+     
+      <script type="text/javascript">
+              var navbar = document.querySelector(".navbar")
+              window.onscroll = function() {
+                  if ( window.pageYOffset > 100) {
+                      navbar.classList.add('scrolled')
+                  } else {
+                      navbar.classList.remove('scrolled')
+                  }
+              }
+          </script>
+      
+     
+      
+</body>
+</html>
+    
+ 
+   
+
+
+
+
